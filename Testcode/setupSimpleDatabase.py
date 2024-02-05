@@ -245,7 +245,6 @@ image_id = execute_read_query(connection, select_image_tag_random_full_query)
 print(image_id)
 
 # Below works for single tags too
-tags=["'spiral'", "'local_group'"]
 tag_ids = []
 print("\nSelecting a random image based on multiple tags")
 for tag in tags:
@@ -271,6 +270,7 @@ for tag_id in tag_ids:
     final_image_id_set = final_image_id_set.intersection(image_id_set)
     # If the intersection of the set is empty, break since we only remove elements
     if len(final_image_id_set) == 0:
+        print("Oops all images removed")
         break
 if len(final_image_id_set) == 0:
     print("Oops, no matches")
